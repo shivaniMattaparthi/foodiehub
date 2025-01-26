@@ -15,8 +15,8 @@ function App() {
       <Navbar/>
       <ToastContainer />
       <Routes>
-        <Route path = "/home" element = {<Home/>}/>
-        <Route path="/" element={<Categories />} />
+        <Route path = "/" element = {<Home/>}/>
+        <Route path="/category" element={<Categories />} />
         <Route path="/category/:type" element={<Items />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/details/:id" element={<ItemDetails />} />

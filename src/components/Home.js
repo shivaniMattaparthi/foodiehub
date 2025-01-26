@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; 
 import HeroImg from "../assets/hero.png";
 
 const Home = () => {
+  const navigate = useNavigate(); 
+
+  const handleFoodMenuClick = () => {
+    navigate("/category"); 
+  };
+
   return (
     <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 min-h-screen">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[600px]">
@@ -16,7 +23,11 @@ const Home = () => {
             explicabo.
           </p>
           <div className="flex gap-4 items-center md:justify-start justify-center">
-            <button className="primary-btn hover:scale-105 duration-200">
+            {/* Food Menu Button */}
+            <button 
+              onClick={handleFoodMenuClick} 
+              className="primary-btn hover:scale-105 duration-200"
+            >
               Food Menu
             </button>
             <button className="secondary-btn text-black hover:scale-105 duration-200">

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import Profile from "../assets/profile.png";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link, useLocation } from "react-router-dom"; 
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation(); 
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-blue-50 to-purple-50  sticky top-0 z-50">
+    <div className="bg-gradient-to-b from-gray-100 via-blue-50 to-purple-50 sticky top-0 z-50">
       <div className="container flex justify-between items-center py-4 px-6">
         {/* Logo Section */}
         <div>
@@ -22,14 +24,35 @@ const Navbar = () => {
         {/* Menu Section */}
         <div className="flex items-center gap-10">
           <ul className="hidden sm:flex gap-8 text-gray-700">
-            <li className="hover:text-primary hover:border-b-2 border-primary uppercase cursor-pointer">
-              Home
+            <li>
+              <Link
+                to="/"
+                className={`${
+                  location.pathname === "/" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                } uppercase cursor-pointer`}
+              >
+                Home
+              </Link>
             </li>
-            <li className="hover:text-primary hover:border-b-2 border-primary uppercase cursor-pointer">
-              Menu
+            <li>
+              <Link
+                to="/category"
+                className={`${
+                  location.pathname === "/category" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                } uppercase cursor-pointer`}
+              >
+                Menu
+              </Link>
             </li>
-            <li className="hover:text-primary hover:border-b-2 border-primary uppercase cursor-pointer">
-              About
+            <li>
+              <Link
+                to="/about"
+                className={`${
+                  location.pathname === "/about" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                } uppercase cursor-pointer`}
+              >
+                About
+              </Link>
             </li>
           </ul>
 
