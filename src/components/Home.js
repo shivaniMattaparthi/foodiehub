@@ -1,12 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import HeroImg from "../assets/hero.png";
 
 const Home = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleFoodMenuClick = () => {
-    navigate("/category"); 
+    navigate("/category");
   };
 
   return (
@@ -18,14 +18,16 @@ const Home = () => {
             Delicious Food Is Waiting For You
           </h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-            assumenda qui ipsam id officiis modi cumque minus dolores placeat
-            explicabo.
+            At FOODIEHUB, we believe that great food starts with fresh
+            ingredients and a passion for taste. Explore a wide variety of
+            mouthwatering recipes and delicious meals crafted to delight your
+            taste buds. Treat yourself to a feast of flavors, and let every meal
+            be a moment to cherish!
           </p>
           <div className="flex gap-4 items-center md:justify-start justify-center">
             {/* Food Menu Button */}
-            <button 
-              onClick={handleFoodMenuClick} 
+            <button
+              onClick={handleFoodMenuClick}
               className="primary-btn hover:scale-105 duration-200"
             >
               Food Menu

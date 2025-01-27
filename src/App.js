@@ -8,18 +8,22 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import OrderSummary from "./components/orderssummary";
+import Orders from "./components/orders";
+
 function App() {
   return (
-    
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <ToastContainer />
       <Routes>
-        <Route path = "/" element = {<Home/>}/>
+        <Route path="/" element={<Home />} />
         <Route path="/category" element={<Categories />} />
         <Route path="/category/:type" element={<Items />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/details/:id" element={<ItemDetails />} />
+        <Route path="/ordersummary" element={<OrderSummary />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
     </BrowserRouter>
   );
