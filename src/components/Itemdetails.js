@@ -28,11 +28,15 @@ const ItemDetails = () => {
       price: Math.floor(Math.random() * 20) + 5,
       image: item.strMealThumb,
     };
+    // toast.success("Order placed successfully!");
+    // navigate("/");
+    // const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    // localStorage.setItem("orders", JSON.stringify([...orders, order]));
+    // Save order to localStorage
+    localStorage.setItem("currentOrder", JSON.stringify(order));
 
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
-    localStorage.setItem("orders", JSON.stringify([...orders, order]));
-    toast.success("Order placed successfully!");
-    navigate("/");
+    // Navigate to the order summary page
+    navigate("/ordersummary");
   };
 
   if (!item) return <div>Loading details...</div>;
