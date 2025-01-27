@@ -31,7 +31,7 @@ const Home = () => {
               Food Menu
             </button>
             <button className="secondary-btn text-black hover:scale-105 duration-200">
-              Book Table
+              Wishlist
             </button>
           </div>
         </div>
