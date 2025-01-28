@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import HeroImg from "../assets/hero.png";
+import TimeZoneGreeting from "./Timezonegreeting";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Home = () => {
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[600px]">
         {/* Text Section */}
         <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24 md:p-0 pb-10">
+          <TimeZoneGreeting />
           <h1 className="text-4xl lg:text-6xl font-semibold">
             Delicious Food Is Waiting For You
           </h1>
@@ -31,9 +33,8 @@ const Home = () => {
             >
               Food Menu
             </button>
-            <button
-             className="secondary-btn text-black hover:scale-105 duration-200">
-              Book Table 
+            <button className="secondary-btn text-black hover:scale-105 duration-200">
+              Book Table
             </button>
           </div>
         </div>
