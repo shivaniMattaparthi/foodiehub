@@ -32,7 +32,12 @@ const ItemDetails = () => {
     navigate("/ordersummary");
   };
 
-  if (!item) return <div className="text-center text-xl mt-10">Loading details...</div>;
+  if (!item) return <div className="flex items-center justify-center h-screen bg-gray-100">
+  <div className="relative w-16 h-16">
+    <div className="absolute top-0 left-0 w-full h-full border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+    <div className="absolute top-1 left-1 w-[90%] h-[90%] border-4 border-t-transparent border-gray-300 rounded-full"></div>
+  </div>
+</div>
 
   return (
     <div className="mx-auto h-[100vh] flex flex-col items-center p-10 bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 shadow-lg rounded-lg">

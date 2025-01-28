@@ -15,7 +15,10 @@ const Orders = () => {
 
   return (
     <div className="orders p-4">
-      <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
+      <h1 className="text-5xl font-bold mb-6 text-center">
+        <span className="text-black">My</span>{" "}
+        <span className="text-orange-500">Orders</span>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {orders
           .slice().reverse().map((order, index) => (
