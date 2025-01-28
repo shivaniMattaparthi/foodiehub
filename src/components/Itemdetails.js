@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const ItemDetails = () => {
   const { id } = useParams();
@@ -28,37 +27,33 @@ const ItemDetails = () => {
       price: Math.floor(Math.random() * 20) + 5,
       image: item.strMealThumb,
     };
-    // toast.success("Order placed successfully!");
-    // navigate("/");
-    // const orders = JSON.parse(localStorage.getItem("orders")) || [];
-    // localStorage.setItem("orders", JSON.stringify([...orders, order]));
-    // Save order to localStorage
-    localStorage.setItem("currentOrder", JSON.stringify(order));
 
-    // Navigate to the order summary page
+    localStorage.setItem("currentOrder", JSON.stringify(order));
     navigate("/ordersummary");
   };
 
-  if (!item) return <div>Loading details...</div>;
+  if (!item) return <div className="text-center text-xl mt-10">Loading details...</div>;
 
   return (
-    <div className="item-details p-4">
-      <h1 className="text-2xl font-bold mb-4">{item.strMeal}</h1>
-      <img
-        src={item.strMealThumb}
-        alt={item.strMeal}
-        className="w-full h-60 object-cover rounded-md"
-      />
-      <h2 className="text-xl font-semibold">
-        Price: ${Math.floor(Math.random() * 20) + 5}
-      </h2>
-      <p className="text-md mt-2">{item.strInstructions}</p>
-      <button
-        onClick={handlePlaceOrder}
-        className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg hover:bg-blue-600"
-      >
-        Place Order
-      </button>
+    <div className="mx-auto h-[100vh] flex flex-col items-center p-10 bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 shadow-lg rounded-lg">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">{item.strMeal}</h1>
+      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-6">
+        <img
+          src={item.strMealThumb}
+          alt={item.strMeal}
+          className="w-80 h-60 object-cover rounded-md shadow-md mb-6 md:mb-0"
+        />
+        <p className="text-gray-600 leading-relaxed md:w-1/2 text-center md:text-left">{item.strInstructions}</p>
+      </div>
+      <div className="mt-6 text-center">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Price: ${Math.floor(Math.random() * 20) + 5}</h2>
+        <button
+          onClick={handlePlaceOrder}
+          className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 };

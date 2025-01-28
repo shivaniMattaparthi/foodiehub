@@ -48,10 +48,10 @@ const Items = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
+    autoplay: true ,
+    autoplaySpeed:200,
     arrows: true,
   };
 
@@ -63,9 +63,9 @@ const Items = () => {
       </h2>
       <Slider {...settings} className="mb-8">
         {topPicks.map((item) => (
-          <div key={item.idMeal} className="px-2">
+          <div key={item.idMeal} className="px-4">
             <div
-              className="item-card border rounded-lg p-8 shadow-lg bg-white relative overflow-hidden cursor-pointer"
+              className="item-card border rounded-lg p-6 shadow-lg bg-gray-100 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               onClick={() => navigate(`/details/${item.idMeal}`)}
@@ -75,7 +75,7 @@ const Items = () => {
                   e.stopPropagation();
                   toggleWishlist(item);
                 }}
-                className={`absolute bottom-4 right-4 text-3xl transition-colors duration-300 ${
+                className={`absolute top-4 right-4 text-3xl transition-colors duration-300 ${
                   wishlist.some(({ idMeal }) => idMeal === item.idMeal)
                     ? "text-red-500"
                     : "text-gray-500 hover:text-gray-800"
@@ -86,13 +86,13 @@ const Items = () => {
               <img
                 src={item.strMealThumb}
                 alt={item.strMeal}
-                className="w-full h-60 object-cover rounded-md shadow-sm"
+                className="w-80 h-64 object-cover rounded-md shadow-md mx-auto"
               />
-              <div className="text-center mt-4">
-                <h3 className="text-xl font-semibold text-gray-800">
+              <div className="text-center mt-6">
+                <h3 className="text-lg font-semibold text-gray-800">
                   {item.strMeal}
                 </h3>
-                <h4 className="text-vegetarianlg font-medium text-gray-600 mt-1">
+                <h4 className="text-lg font-medium text-gray-600 mt-2">
                   Price: ${Math.floor(Math.random() * 20) + 5}
                 </h4>
               </div>
@@ -102,7 +102,7 @@ const Items = () => {
       </Slider>
 
       {/* Continue Your Search Section */}
-      <h2 className="text-2xl text-blue-800 font-bold mb-4">
+      <h2 className="text-3xl text-orange-400 font-bold mb-4 underline">
         Continue Your Search
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

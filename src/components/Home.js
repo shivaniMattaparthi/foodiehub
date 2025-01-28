@@ -8,7 +8,6 @@ const Home = () => {
   const handleFoodMenuClick = () => {
     navigate("/category");
   };
-
   return (
     <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 min-h-screen">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[600px]">
@@ -32,8 +31,9 @@ const Home = () => {
             >
               Food Menu
             </button>
-            <button className="secondary-btn text-black hover:scale-105 duration-200">
-              Wishlist
+            <button
+             className="secondary-btn text-black hover:scale-105 duration-200">
+              Book Table 
             </button>
           </div>
         </div>

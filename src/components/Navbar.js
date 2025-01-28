@@ -74,10 +74,12 @@ const Navbar = () => {
               <div className="absolute right-0 mt-2 bg-white border rounded-lg shadow-lg w-40">
                 <ul className="text-left text-gray-700">
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    My Orders
+                    <Link to = "/orders">
+                      My orders
+                    </Link>
                   </li>
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Favourites
+                    <Link to = "/wishlist">Favourites</Link>
                   </li>
                 </ul>
               </div>
