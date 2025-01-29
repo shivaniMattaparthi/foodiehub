@@ -21,7 +21,7 @@ const Orders = () => {
 
   return (
     <div className="orders p-4">
-      <button onClick={removeOrdersFromLocalStorage}>Remove orders</button>
+      <button onClick={removeOrdersFromLocalStorage} className="bg-orange-500 text-white px-3 py-3 rounded-md">Remove orders</button>
       <h1 className="text-5xl font-bold mb-6 text-center">
         <span className="text-black">My</span>{" "}
         <span className="text-orange-500">Orders</span>

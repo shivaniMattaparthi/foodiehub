@@ -6,36 +6,54 @@ const OrderSummary = () => {
   const navigate = useNavigate();
   const [order, setOrder] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [currentAddress, setCurrentAddress] = useState(null);
 
   useEffect(() => {
+    // Fetch order from localStorage
     const storedOrder = JSON.parse(localStorage.getItem("currentOrder"));
     if (storedOrder) {
       setOrder(storedOrder);
     } else {
       navigate("/");
     }
+
+    // Fetch current address from localStorage
+    const storedAddress = JSON.parse(localStorage.getItem("currentAddress"));
+    if (storedAddress) {
+      setCurrentAddress(storedAddress);
+    }
   }, [navigate]);
 
   if (!order) {
-    return <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="relative w-16 h-16">
-        <div className="absolute top-0 left-0 w-full h-full border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
-        <div className="absolute top-1 left-1 w-[90%] h-[90%] border-4 border-t-transparent border-gray-300 rounded-full"></div>
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <div className="relative w-16 h-16">
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <div className="absolute top-1 left-1 w-[90%] h-[90%] border-4 border-t-transparent border-gray-300 rounded-full"></div>
+        </div>
       </div>
-    </div>;
+    );
   }
 
   const handleContinue = () => {
+    if (!currentAddress) {
+      toast.error("Please select an address before continuing!");
+      return;
+    }
+
     const newOrder = {
       ...order,
       quantity,
       totalPrice: order.price * quantity,
+      address: currentAddress,
     };
 
     const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
     const updatedOrders = [...existingOrders, newOrder];
     localStorage.setItem("orders", JSON.stringify(updatedOrders));
-    toast.success("Order placed successfully!");
+    toast.success(
+      `"Thank you, ${currentAddress.username}! Your order from ${currentAddress.city} has been received. Deliciousness coming soon!"`
+    );
     navigate("/");
   };
 
@@ -91,6 +109,27 @@ const OrderSummary = () => {
               ${totalPrice}
             </span>
           </h3>
+        </div>
+
+        {/* Current Address */}
+        <div className="mt-6 p-4 bg-gray-100 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-800">
+            Delivery Address:
+          </h3>
+          {currentAddress ? (
+            <p className="text-gray-700 mt-2">
+              <strong>{currentAddress.username}</strong>, {currentAddress.phone}
+              , {currentAddress.city}
+            </p>
+          ) : (
+            <p className="text-red-500 mt-2">No address selected</p>
+          )}
+          <button
+            onClick={() => navigate("/savedaddresses")}
+            className="mt-3 text-blue-600 hover:underline"
+          >
+            Change Address
+          </button>
         </div>
 
         {/* Continue Button */}
