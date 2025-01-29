@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Profile from "../assets/profile.png";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const location = useLocation(); 
+  const location = useLocation();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -28,7 +28,9 @@ const Navbar = () => {
               <Link
                 to="/"
                 className={`${
-                  location.pathname === "/" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                  location.pathname === "/"
+                    ? "text-primary border-b-2 border-primary"
+                    : "hover:text-primary hover:border-b-2 border-primary"
                 } uppercase cursor-pointer`}
               >
                 Home
@@ -38,7 +40,9 @@ const Navbar = () => {
               <Link
                 to="/category"
                 className={`${
-                  location.pathname === "/category" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                  location.pathname === "/category"
+                    ? "text-primary border-b-2 border-primary"
+                    : "hover:text-primary hover:border-b-2 border-primary"
                 } uppercase cursor-pointer`}
               >
                 Menu
@@ -48,7 +52,9 @@ const Navbar = () => {
               <Link
                 to="/about"
                 className={`${
-                  location.pathname === "/about" ? "text-primary border-b-2 border-primary" : "hover:text-primary hover:border-b-2 border-primary"
+                  location.pathname === "/about"
+                    ? "text-primary border-b-2 border-primary"
+                    : "hover:text-primary hover:border-b-2 border-primary"
                 } uppercase cursor-pointer`}
               >
                 About
@@ -74,12 +80,13 @@ const Navbar = () => {
               <div className="absolute right-0 mt-2 bg-white border rounded-lg shadow-lg w-40">
                 <ul className="text-left text-gray-700">
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    <Link to = "/orders">
-                      My orders
-                    </Link>
+                    <Link to="/orders">My Orders</Link>
                   </li>
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    <Link to = "/wishlist">Favourites</Link>
+                    <Link to="/wishlist">Favourites</Link>
+                  </li>
+                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <Link to="/savedaddresses">My Addresses</Link>
                   </li>
                 </ul>
               </div>

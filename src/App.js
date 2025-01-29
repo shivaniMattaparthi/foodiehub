@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import OrderSummary from "./components/orderssummary";
 import Orders from "./components/orders";
+import AddressManager from "./components/addresses";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/details/:id" element={<ItemDetails />} />
         <Route path="/ordersummary" element={<OrderSummary />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/savedaddresses" element={<AddressManager />} />
       </Routes>
     </BrowserRouter>
   );
