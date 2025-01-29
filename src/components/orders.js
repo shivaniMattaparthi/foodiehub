@@ -10,11 +10,18 @@ const Orders = () => {
   }, []);
 
   if (orders.length === 0) {
-    return <div>No orders have been placed yet.</div>;
+    return (<div className="flex items-center justify-center h-screen text-2xl text-gray-500 font-semibold">
+      No orders have been placed yet.
+    </div>);
+  }
+  const removeOrdersFromLocalStorage = () => {
+    localStorage.removeItem("orders")
+    setOrders([])
   }
 
   return (
     <div className="orders p-4">
+      <button onClick={removeOrdersFromLocalStorage}>Remove orders</button>
       <h1 className="text-5xl font-bold mb-6 text-center">
         <span className="text-black">My</span>{" "}
         <span className="text-orange-500">Orders</span>
