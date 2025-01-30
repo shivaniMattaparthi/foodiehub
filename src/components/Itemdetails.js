@@ -40,7 +40,7 @@ const ItemDetails = () => {
 </div>
 
   return (
-    <div className="mx-auto h-[100vh] flex flex-col items-center p-10 bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 shadow-lg rounded-lg">
+    <div className="mx-auto min-h-screen flex flex-col items-center p-10 bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 shadow-lg rounded-lg">
       <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">{item.strMeal}</h1>
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-6">
         <img

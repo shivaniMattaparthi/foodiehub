@@ -81,7 +81,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-10">
-          <ul className="hidden sm:flex gap-8 text-gray-700">
+          <ul className="sm:flex gap-8 text-gray-700">
             <li>
               <Link
                 to="/"
@@ -147,13 +147,13 @@ const Navbar = () => {
                   <li className="md:hidden px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/about">About</Link>
                   </li>
-                  <li className="md:hidden px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className=" px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/orders">My Orders</Link>
                   </li>
-                  <li className="md:hidden px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className=" px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/wishlist">Favourites</Link>
                   </li>
-                  <li className="md:hidden px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/savedaddresses">My Addresses</Link>
                   </li>
                 </ul>
