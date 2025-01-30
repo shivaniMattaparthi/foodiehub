@@ -34,7 +34,7 @@ const Navbar = () => {
           console.log("Latitude:", latitude, "Longitude:", longitude);
           try {
             const response = await fetch(
-              `https://us1.locationiq.com/v1/reverse.php?key=pk.1353c54342312ac4558dbc2edc2dc6c0&lat=${latitude}&lon=${longitude}&format=json`
+              `  https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
             );
             const data = await response.json();
             if (data.address && data.address.city) {
