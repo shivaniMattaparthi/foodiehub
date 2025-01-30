@@ -71,15 +71,15 @@ const Items = () => {
     arrows: true,
     responsive: [
       {
-        breakpoint: 640, // For devices below sm (up to 640px)
+        breakpoint: 640, 
         settings: {
-          slidesToShow: 1, // Show 2 slides
+          slidesToShow: 1,
         },
       },
       {
-        breakpoint: 768, // For devices up to md (up to 768px)
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2, // Show 2 slides
+          slidesToShow: 2,
         },
       }
     ],
@@ -147,7 +147,7 @@ const Items = () => {
         Continue Your Search
       </h2>
       {filteredItems.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.idMeal}
