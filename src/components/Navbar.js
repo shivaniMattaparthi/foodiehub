@@ -36,7 +36,7 @@ const Navbar = () => {
   
       {/* Menu Section */}
       <div className="flex items-center gap-10">
-        <ul className="hidden sm:flex gap-8 text-gray-700">
+        <ul className="sm:flex gap-8 text-gray-700">
           <li>
             <Link
               to="/"

@@ -69,6 +69,20 @@ const Items = () => {
     autoplay: true,
     autoplaySpeed: 200,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 640, // For devices below sm (up to 640px)
+        settings: {
+          slidesToShow: 1, // Show 2 slides
+        },
+      },
+      {
+        breakpoint: 768, // For devices up to md (up to 768px)
+        settings: {
+          slidesToShow: 2, // Show 2 slides
+        },
+      }
+    ],
   };
 
   return (

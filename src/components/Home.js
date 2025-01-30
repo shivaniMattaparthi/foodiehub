@@ -13,7 +13,7 @@ const Home = () => {
     <div className="h-100 flex flex-col justify-center bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100">
       <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Text Section */}
-        <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24 p-10">
+        <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24">
           <TimeZoneGreeting />
           <h1 className="text-4xl lg:text-6xl font-semibold">
             Delicious Food Is Waiting For You
@@ -25,7 +25,7 @@ const Home = () => {
             taste buds. Treat yourself to a feast of flavors, and let every meal
             be a moment to cherish!
           </p>
-          <div className="flex gap-4 items-center md:justify-start justify-center">
+          <div className="flex gap-4 items-center md:justify-start justify-center pb-6">
             {/* Food Menu Button */}
             <button
               onClick={handleFoodMenuClick}
@@ -40,11 +40,11 @@ const Home = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex flex-col justify-center  items-center h-full relative pb-8">
+        <div className="flex flex-col justify-center  items-center h-full relative sm:pb-8">
           <img
             src={HeroImg}
             alt="Hero"
-            className="animate-spin-slow img-shadow object-cover h-60 w-60"
+            className="animate-spin-slow img-shadow  mx-auto  lg:h-80 lg:w-80 "
           />
         </div>
       </div>
