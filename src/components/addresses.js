@@ -162,11 +162,11 @@ const AddressManager = () => {
             </label>
             <div className="space-x-2 flex">
               <button
-                className="bg-orange-500 text-white cursor-pointer hover:text-orange-400 px-3 py-2 rounded-md"
+                className="bg-orange-500 text-white cursor-pointer hover:bg-orange-600 px-3 py-2 rounded-md"
                 onClick={() => handleEdit(index)}
               >Edit</button>
               <button
-                className=" bg-red-500 cursor-pointer text-white hover:text-red-400 px-3 py-2 rounded-md"
+                className=" bg-red-500 cursor-pointer text-white hover:bg-red-600 px-3 py-2 rounded-md"
                 onClick={() => handleRemove(index)}
               >Remove</button>
             </div>

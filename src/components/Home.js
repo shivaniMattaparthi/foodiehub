@@ -10,7 +10,7 @@ const Home = () => {
     navigate("/category");
   };
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 min-h-screen">
+    <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 md:min-h-screen">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[600px]">
         {/* Text Section */}
         <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24 md:p-0 pb-10">
