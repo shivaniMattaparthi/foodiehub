@@ -27,7 +27,7 @@ const TimeZoneGreeting = () => {
     }
   }, []);
   return (
-    <h1 className="text-4xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-yellow-500 animate-pulse drop-shadow-lg mb-8">
+    <h1 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-orange-500 to-yellow-500 animate-pulse drop-shadow-lg mb-8">
       {greeting}
     </h1>
   );

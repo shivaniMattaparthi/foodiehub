@@ -10,10 +10,10 @@ const Home = () => {
     navigate("/category");
   };
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 md:min-h-screen">
-      <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[600px]">
+    <div className="h-100 flex flex-col justify-center bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100">
+      <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Text Section */}
-        <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24 md:p-0 pb-10">
+        <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24 p-10">
           <TimeZoneGreeting />
           <h1 className="text-4xl lg:text-6xl font-semibold">
             Delicious Food Is Waiting For You
@@ -40,11 +40,11 @@ const Home = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center  items-center h-full relative pb-8">
           <img
             src={HeroImg}
             alt="Hero"
-            className="animate-spin-slow img-shadow w-[400px] mx-auto"
+            className="animate-spin-slow img-shadow object-cover h-60 w-60"
           />
         </div>
       </div>
