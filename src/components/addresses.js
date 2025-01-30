@@ -38,8 +38,12 @@ const AddressManager = () => {
 
   // Save addresses and current address to localStorage
   useEffect(() => {
-    localStorage.setItem("addresses", JSON.stringify(addresses));
-    localStorage.setItem("currentAddress", JSON.stringify(currentAddress));
+    if (addresses.length > 0) {
+      localStorage.setItem("addresses", JSON.stringify(addresses));
+    }
+    if (currentAddress) {
+      localStorage.setItem("currentAddress", JSON.stringify(currentAddress));
+    }
   }, [addresses, currentAddress]);
 
   const handleInputChange = (e) => {
@@ -49,11 +53,13 @@ const AddressManager = () => {
 
   const handleAddOrEdit = () => {
     if (editIndex !== null) {
+      // Editing an address
       const updatedAddresses = [...addresses];
       updatedAddresses[editIndex] = formData;
       setAddresses(updatedAddresses);
       setEditIndex(null);
     } else {
+      // Adding a new address
       setAddresses([...addresses, formData]);
     }
 
@@ -71,6 +77,8 @@ const AddressManager = () => {
   const handleRemove = (index) => {
     const updatedAddresses = addresses.filter((_, i) => i !== index);
     setAddresses(updatedAddresses);
+
+    // Clear the current address if it was removed
     if (currentAddress && currentAddress === addresses[index]) {
       setCurrentAddress(null);
     }
@@ -154,16 +162,16 @@ const AddressManager = () => {
               </label>
               <div className="flex space-x-3">
                 <button
-                  className="text-orange-500 cursor-pointer hover:text-orange-600"
+                  className="text-blue-500 cursor-pointer hover:text-blue-600"
                   onClick={() => handleEdit(index)}
                 >
-                  ✏️
+                  Edit
                 </button>
                 <button
                   className="text-red-500 cursor-pointer hover:text-red-600"
                   onClick={() => handleRemove(index)}
                 >
-                  🗑️
+                  Delete
                 </button>
               </div>
             </li>

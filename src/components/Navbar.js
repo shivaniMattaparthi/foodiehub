@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Profile from "../assets/profile.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
@@ -6,7 +6,20 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
+  const popupRef = useRef();
+  useEffect(() => {
+    let handleClickOutside = (e) => {
+      if (popupRef && !popupRef?.current?.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -63,7 +76,7 @@ const Navbar = () => {
           </ul>
 
           {/* Profile and Dropdown Section */}
-          <div className="relative">
+          <div className="relative " ref={popupRef}>
             <div
               className="flex gap-2 items-center cursor-pointer"
               onClick={toggleDropdown}
