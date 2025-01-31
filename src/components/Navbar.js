@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Profile from "../assets/profile.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
-
+import ThemeSelector from "./Themeselector";
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
@@ -40,12 +40,12 @@ const Navbar = () => {
               `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
             );
             const data = await response.json();
-            console.log(data.address, "data add")
-            console.log(data.address.city, "data city")
+            console.log(data.address, "data add");
+            console.log(data.address.city, "data city");
             if (data.address && data.address.town) {
               setuserCurrentLocation(data.address.town);
-            } else if(data.address && data.address.city){
-              setuserCurrentLocation(data.address.city)
+            } else if (data.address && data.address.city) {
+              setuserCurrentLocation(data.address.city);
             }
           } catch (error) {
             console.error("Error fetching location:", error);
@@ -70,16 +70,17 @@ const Navbar = () => {
       <div className="container flex justify-between items-center py-4 px-6">
         {/* Logo Section */}
         <div>
-        <p
-  className={`text-3xl font-semibold text-primary transition-all duration-1000 ease-in-out transform ${
-    showLocation ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
-  }`}
->
-  {showLocation ? userCurrentLocation : "FOODIEHUB"}
-</p>
-
+          <p
+            className={`text-3xl font-semibold text-primary transition-all duration-1000 ease-in-out transform ${
+              showLocation
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-10 opacity-0"
+            }`}
+          >
+            {showLocation ? userCurrentLocation : "FOODIEHUB"}
+          </p>
         </div>
-
+        <ThemeSelector />
         <div className="flex items-center gap-10">
           <ul className="sm:flex gap-8 text-gray-700">
             <li>

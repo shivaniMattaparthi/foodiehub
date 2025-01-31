@@ -7,7 +7,7 @@ const Wishlist = () => {
   );
 
   return (
-    <div className="wishlist p-6 bg-gray-100 min-h-screen">
+    <div className="wishlist p-6 min-h-screen">
       <h2 className="text-5xl font-bold mb-6 text-center">
         <span className="text-black">My</span>{" "}
         <span className="text-orange-500">Wishlist</span>

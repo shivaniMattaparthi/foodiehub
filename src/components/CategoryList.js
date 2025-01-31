@@ -18,7 +18,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 via-gray-100 to-purple-100 categories grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+    <div className="Menu min-h-screen  categories grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
       {categories.map((category, index) => (
         <Link
           key={index}

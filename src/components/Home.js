@@ -10,7 +10,7 @@ const Home = () => {
     navigate("/category");
   };
   return (
-    <div className="h-100 flex flex-col justify-center bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100">
+    <div className="Home h-100 flex flex-col justify-center ">
       <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Text Section */}
         <div className="flex flex-col justify-center gap-8 text-center md:text-left pt-24">

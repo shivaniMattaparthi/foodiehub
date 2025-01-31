@@ -29,7 +29,7 @@ const Orders = () => {
   }
 
   return (
-    <div className="orders p-4">
+    <div className="orders min-h-screen p-4">
       <button
         onClick={removeOrdersFromLocalStorage}
         className="bg-orange-500 text-white px-3 py-3 rounded-md"

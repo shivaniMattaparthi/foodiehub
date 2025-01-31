@@ -17,3 +17,55 @@
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
   }
 }
+
+/* Default theme*/
+body.dark-theme {
+  --bg-color: #1a202c;
+  --text-color: #f7fafc;
+  --button-bg: #e53e3e;
+}
+
+/* Light Theme */
+body.default-theme {
+  --bg-color: #ffffff;
+  --text-color: #0e0d0d;
+  --button-bg: #ffcc00;
+}
+
+
+#root {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+body.default-theme .Home{
+  background: linear-gradient(to bottom, #f3f4f6, #bfdbfe, #d8b4fe);
+}
+body.dark-theme .Home{
+  background:  linear-gradient(to bottom, #374151, #1f2937, #000000);
+}
+.Home{
+  transition:background-color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .Menu{
+  background: linear-gradient(to bottom, #f3f4f6, #bfdbfe, #d8b4fe);
+  
+}
+body.dark-theme .Menu{
+  background:  linear-gradient(to bottom, #374151, #1f2937, #000000);
+}
+.Menu{
+  transition:background-color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .Address{
+  background: linear-gradient(to bottom, #f3f4f6, #bfdbfe, #d8b4fe);
+}
+body.dark-theme .Address{
+  background:  linear-gradient(to bottom, #374151, #1f2937, #000000);
+  color:#000;
+}
+.Address{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}

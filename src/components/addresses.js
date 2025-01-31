@@ -5,7 +5,7 @@ const AddressManager = () => {
   const [addresses, setAddresses] = useState([]);
   const [currentAddress, setCurrentAddress] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     phone: "",
@@ -16,7 +16,7 @@ const AddressManager = () => {
   useEffect(() => {
     const storedAddresses = localStorage.getItem("addresses");
     const storedCurrentAddress = localStorage.getItem("currentAddress");
-  
+
     if (storedAddresses) {
       try {
         const parsedAddresses = JSON.parse(storedAddresses);
@@ -27,7 +27,7 @@ const AddressManager = () => {
         console.error("Error parsing addresses:", error);
       }
     }
-  
+
     if (storedCurrentAddress) {
       try {
         setCurrentAddress(JSON.parse(storedCurrentAddress));
@@ -36,7 +36,7 @@ const AddressManager = () => {
       }
     }
   }, []);
-  
+
   useEffect(() => {
     if (addresses.length > 0) {
       localStorage.setItem("addresses", JSON.stringify(addresses));
@@ -45,7 +45,6 @@ const AddressManager = () => {
       localStorage.setItem("currentAddress", JSON.stringify(currentAddress));
     }
   }, [addresses, currentAddress]);
-  
 
   useEffect(() => {
     localStorage.setItem("addresses", JSON.stringify(addresses));
@@ -96,10 +95,10 @@ const AddressManager = () => {
     setCurrentAddress(addresses[index]);
   };
   const handleGoBackFunc = () => {
-  navigate("/ordersummary")
-}
+    navigate("/ordersummary");
+  };
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 min-h-screen pt-8">
+    <div className="Address min-h-screen pt-8">
       <div className="max-w-lg mx-auto p-5 bg-white shadow-md rounded-lg">
         <button
           onClick={() => setShowForm(true)}
@@ -184,10 +183,14 @@ const AddressManager = () => {
             </li>
           ))}
         </ul>
-
       </div>
       <div className="flex justify-center mt-5">
-      <button onClick = {handleGoBackFunc} className="bg-orange-500 text-white px-3 py-3 rounded-md">Go back</button>
+        <button
+          onClick={handleGoBackFunc}
+          className="bg-orange-500 text-white px-3 py-3 rounded-md"
+        >
+          Go back
+        </button>
       </div>
     </div>
   );
