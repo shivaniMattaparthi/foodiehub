@@ -69,3 +69,68 @@ body.dark-theme .Address{
 .Address{
   transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
 }
+
+body.default-theme .orders{
+  background: linear-gradient(to bottom, #9fa8bb, #bfdbfe, #d8b4fe);
+  color:#000;
+
+}
+body.dark-theme .orders{
+  background:  linear-gradient(to bottom, #374151, #1f2937, #000000);
+  
+}
+.orders{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .orderssummary{
+  background: linear-gradient(to bottom, #f3f4f6, #bfdbfe, #d8b4fe);
+  color:#000;
+
+}
+body.dark-theme .orderssummary{
+  background:  linear-gradient(to bottom, #374151, #1f2937, #000000);
+  color:#000;
+}
+.orderssummary{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .Navbar{
+  background: linear-gradient(to top, #f3f4f6, #d6dfeb, #ebeaec);
+}
+body.dark-theme .Navbar{
+  background:  linear-gradient(to bottom, #374151, #637286);
+  color:white;
+}
+.Navbar{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .savedaddresses{
+  background-color: white;
+}
+body.dark-theme .savedaddresses{
+  background:  linear-gradient(to bottom, #374151, #4c5766);
+  
+}
+.savedaddresses{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .wishlistText{
+  color: black;
+}
+body.dark-theme .wishlistText{
+  color:#fff;
+  
+}
+.wishlistText{
+  transition:color 0.3s ease,transform 0.3s ease;
+}
+body.default-theme .order-item{
+  background-color: #fff;
+}
+body.dark-theme .order-item{
+  background-color:rgb(112, 110, 110);
+  color:#000
+}
+.order-item{
+  transition:background-color 0.3s ease,color 0.3s ease,transform 0.3s ease;
+}

@@ -66,7 +66,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 via-blue-50 to-purple-50 sticky top-0 z-50">
+    <div className="Navbar font-bold sticky top-0 z-50">
       <div className="container flex justify-between items-center py-4 px-6">
         {/* Logo Section */}
         <div>
@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
         <ThemeSelector />
         <div className="flex items-center gap-10">
-          <ul className="sm:flex gap-8 text-gray-700">
+          <ul className="sm:flex gap-8 ">
             <li>
               <Link
                 to="/"

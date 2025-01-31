@@ -60,7 +60,7 @@ const OrderSummary = () => {
   const totalPrice = order.price * quantity;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blue-100 to-purple-100 flex items-center justify-center">
+    <div className="min-h-screen orderssummary flex items-center justify-center">
       <div className="order-summary max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-2xl">
         {/* Header */}
         <h1 className="text-3xl font-semibold mb-6 text-center">

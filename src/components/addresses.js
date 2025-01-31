@@ -99,7 +99,7 @@ const AddressManager = () => {
   };
   return (
     <div className="Address min-h-screen pt-8">
-      <div className="max-w-lg mx-auto p-5 bg-white shadow-md rounded-lg">
+      <div className="savedaddresses max-w-lg mx-auto p-5  shadow-md rounded-lg">
         <button
           onClick={() => setShowForm(true)}
           className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition"
