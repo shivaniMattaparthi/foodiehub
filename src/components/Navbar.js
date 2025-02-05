@@ -80,9 +80,9 @@ const Navbar = () => {
             {showLocation ? userCurrentLocation : "FOODIEHUB"}
           </p>
         </div>
-        <ThemeSelector />
+
         <div className="flex items-center gap-10">
-          <ul className="sm:flex gap-8 ">
+          <ul className="hidden md:flex gap-8 ">
             <li>
               <Link
                 to="/"
@@ -156,6 +156,10 @@ const Navbar = () => {
                   </li>
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/savedaddresses">My Addresses</Link>
+                  </li>
+                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    Themes
+                    <ThemeSelector />
                   </li>
                 </ul>
               </div>
