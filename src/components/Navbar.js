@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
         <ThemeSelector />
         <div className="flex items-center gap-10">
-          <ul className="sm:flex gap-8 ">
+          <ul className="hidden md:flex gap-8 ">
             <li>
               <Link
                 to="/"

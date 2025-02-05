@@ -98,7 +98,7 @@ body.default-theme .Navbar{
   background: linear-gradient(to top, #f3f4f6, #d6dfeb, #ebeaec);
 }
 body.dark-theme .Navbar{
-  background:  linear-gradient(to bottom, #374151, #637286);
+  background:  linear-gradient(to top, #374151, #637286);
   color:white;
 }
 .Navbar{

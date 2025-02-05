@@ -2,27 +2,26 @@ import React from "react";
 import { useTheme } from "./Themecontext";
 
 const ThemeSelector = () => {
-  const { theme, changeTheme, themes } = useTheme();
+  const { theme, changeTheme } = useTheme();
 
-  const themeColors = {
-    default: "#f3f4f6",
-    dark: "#1a202c",
+  const toggleTheme = () => {
+    changeTheme(theme === "default" ? "dark" : "default");
   };
 
   return (
-    <div className="theme-selector flex justify-center space-x-4 mt-4 p-4 pl-3 rounded-lg">
-      {themes.map((themeName) => (
-        <button
-          key={themeName}
-          onClick={() => changeTheme(themeName)}
-          className={`w-6 h-6 rounded-full focus:outline-none transition-all duration-300 ${
-            theme === themeName ? "ring-2 ring-yellow-600 scale-110" : ""
+    <div className="theme-selector flex justify-center mt-4 p-4">
+      <button
+        onClick={toggleTheme}
+        className={`relative w-14 h-8 flex items-center bg-gray-300 rounded-full p-1 transition-all duration-300 ${
+          theme === "dark" ? "bg-gray-700" : "bg-gray-300"
+        }`}
+      >
+        <div
+          className={`w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 transform ${
+            theme === "dark" ? "translate-x-6" : "translate-x-0"
           }`}
-          style={{
-            backgroundColor: themeColors[themeName] || "#ccc",
-          }}
-        ></button>
-      ))}
+        ></div>
+      </button>
     </div>
   );
 };
