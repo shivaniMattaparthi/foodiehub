@@ -12,7 +12,7 @@ const ThemeSelector = () => {
     <div className="theme-selector flex justify-center ">
       <button
         onClick={toggleTheme}
-        className={`relative w-14 h-8 flex items-center bg-gray-300 rounded-full p-1 transition-all duration-300 ${
+        className={`relative w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 transition-all duration-300 ${
           theme === "dark" ? "bg-gray-700" : "bg-gray-300"
         }`}
       >

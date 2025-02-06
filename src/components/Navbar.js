@@ -80,10 +80,7 @@ const Navbar = () => {
             {showLocation ? userCurrentLocation : "FOODIEHUB"}
           </p>
         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 8d8c3320b072c0717121259943794ad437e6bb67
         <div className="flex items-center gap-10">
           <ul className="hidden md:flex gap-8 ">
             <li>
@@ -160,13 +157,8 @@ const Navbar = () => {
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     <Link to="/savedaddresses">My Addresses</Link>
                   </li>
-<<<<<<< HEAD
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Themes
-=======
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex justify-between items-center">
                     <span>Theme</span>
->>>>>>> 8d8c3320b072c0717121259943794ad437e6bb67
                     <ThemeSelector />
                   </li>
                 </ul>

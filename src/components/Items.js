@@ -15,7 +15,27 @@ const Items = () => {
   );
   const [searchQuery, setSearchQuery] = useState(""); // Added search query state
   const [filteredItems, setFilteredItems] = useState([]); // Added state to store filtered items
+  const [maxPrice, setMaxPrice] = useState(20);
+  const filteredByPrice = filteredItems.filter(
+    (item) => item.price <= maxPrice
+  );
+  const [sortOrder, setSortOrder] = useState(""); // Stores selected sorting order
+  const [showSortOptions, setShowSortOptions] = useState(false); // Toggle sort options visibility
 
+  //const PricefilteredItems = items.filter((item) => item.price <= maxPrice);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${type}`
+  //       );
+  //       const data = await response.json();
+  //       setItems(data.meals || []);
+  //     } catch (error) {
+  //       console.error("Error fetching items:", error);
+  //     }
+  //   })();
+  // }, [type]);
   useEffect(() => {
     (async () => {
       try {
@@ -23,7 +43,14 @@ const Items = () => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?c=${type}`
         );
         const data = await response.json();
-        setItems(data.meals || []);
+
+        // Add a random price to each item
+        const mealsWithPrice = (data.meals || []).map((meal) => ({
+          ...meal,
+          price: Math.floor(Math.random() * 20) + 5, // Assign price
+        }));
+
+        setItems(mealsWithPrice);
       } catch (error) {
         console.error("Error fetching items:", error);
       }
@@ -34,10 +61,18 @@ const Items = () => {
     const filtered = items.filter((item) =>
       item.strMeal.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    console.log(filtered,"filtered")
+    console.log(filtered, "filtered");
     setFilteredItems(filtered);
   }, [items, searchQuery]);
+  const handleSortChange = (order) => {
+    setSortOrder(order);
+    setShowSortOptions(false); // Hide options after selection
+  };
 
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortOrder === "lowToHigh") return a.price - b.price;
+    if (sortOrder === "highToLow") return b.price - a.price;
+  });
   const toggleWishlist = (item) => {
     const updatedWishlist = wishlist.some(
       ({ idMeal }) => idMeal === item.idMeal
@@ -71,7 +106,7 @@ const Items = () => {
     arrows: true,
     responsive: [
       {
-        breakpoint: 640, 
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
         },
@@ -81,7 +116,7 @@ const Items = () => {
         settings: {
           slidesToShow: 2,
         },
-      }
+      },
     ],
   };
 
@@ -133,7 +168,7 @@ const Items = () => {
                       {item.strMeal}
                     </h3>
                     <h4 className="text-lg font-medium text-gray-600 mt-2">
-                      Price: ${Math.floor(Math.random() * 20) + 5}
+                      Price:
                     </h4>
                   </div>
                 </div>
@@ -142,7 +177,65 @@ const Items = () => {
           </Slider>
         </div>
       )}
+      <div>
+        <h2>Filter Food by Price</h2>
+        <input
+          type="range"
+          min="5"
+          max="20"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+        />
+        <p>Upto {maxPrice}</p>
+        <ul>
+          {filteredByPrice.map((item) => (
+            <li key={item.idMeal}>
+              {item.strMeal} - ₹{item.price}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <button
+          onClick={() => setShowSortOptions(!showSortOptions)}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Sort
+        </button>
 
+        {showSortOptions && (
+          <div className="p-3 border rounded shadow bg-white">
+            <label>
+              <input
+                type="radio"
+                value="lowToHigh"
+                checked={sortOrder === "lowToHigh"}
+                onChange={() => handleSortChange("lowToHigh")}
+              />
+              Price: Low to High
+            </label>
+            <br />
+            <label>
+              <input
+                type="radio"
+                value="highToLow"
+                checked={sortOrder === "highToLow"}
+                onChange={() => handleSortChange("highToLow")}
+              />
+              Price: High to Low
+            </label>
+          </div>
+        )}
+
+        <h3 className="mt-4">Food Items</h3>
+        <ul>
+          {sortedItems.map((item) => (
+            <li key={item.id}>
+              {item.strMeal} - ₹{item.price}
+            </li>
+          ))}
+        </ul>
+      </div>
       <h2 className="text-3xl text-orange-400 font-bold mb-4 underline">
         Continue Your Search
       </h2>
@@ -195,3 +288,90 @@ const Items = () => {
 };
 
 export default Items;
+
+//--------------------Sorting-----------------------
+//   const [sortOrder, setSortOrder] = useState(""); // Stores selected sorting order
+//   const [showSortOptions, setShowSortOptions] = useState(false); // Toggle sort options visibility
+
+//   const handleSortChange = (order) => {
+//     setSortOrder(order);
+//     setShowSortOptions(false); // Hide options after selection
+//   };
+
+//   const sortedItems = [...items].sort((a, b) => {
+//     if (sortOrder === "lowToHigh") return a.price - b.price;
+//     if (sortOrder === "highToLow") return b.price - a.price;
+//   });
+
+//   return (
+//     <div>
+//       <button
+//         onClick={() => setShowSortOptions(!showSortOptions)}
+//         className="bg-blue-500 text-white px-4 py-2 rounded"
+//       >
+//         Sort
+//       </button>
+
+//       {showSortOptions && (
+//         <div className="p-3 border rounded shadow bg-white">
+//           <label>
+//             <input
+//               type="radio"
+//               value="lowToHigh"
+//               checked={sortOrder === "lowToHigh"}
+//               onChange={() => handleSortChange("lowToHigh")}
+//             />
+//             Price: Low to High
+//           </label>
+//           <br />
+//           <label>
+//             <input
+//               type="radio"
+//               value="highToLow"
+//               checked={sortOrder === "highToLow"}
+//               onChange={() => handleSortChange("highToLow")}
+//             />
+//             Price: High to Low
+//           </label>
+//         </div>
+//       )}
+
+//       <h3 className="mt-4">Food Items</h3>
+//       <ul>
+//         {sortedItems.map((item) => (
+//           <li key={item.id}>
+//             {item.name} - ₹{item.price}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+//----------------------Filtering-------------------------
+
+//   const [maxPrice, setMaxPrice] = useState(20);
+//   const filteredItems = items.filter((item) => item.price <= maxPrice);
+
+//   return (
+//     <div>
+//       <h2>Filter Food by Price</h2>
+//       <input
+//         type="range"
+//         min="5"
+//         max="20"
+//         value={maxPrice}
+//         onChange={(e) => setMaxPrice(e.target.value)}
+//       />
+//
+
+//       <ul>
+//         {filteredItems.map((item) => (
+//           <li key={item.id}>
+//             {item.name} - ₹{item.price}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
